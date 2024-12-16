@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #84c5ff;
+  --secondary-color: #4b9ce9;
+  --text-color: #333;
+  --menu-hover-color: #94a9ff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, var(--primary-color), #ffffff);
+  color: var(--text-color);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 컨테이너 레이아웃 */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+
+/* 헤더 스타일링 */
+.header-title {
+  position: relative;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+#text-calendar {
+  position: absolute;
+  left: 2%;
+  top: -2rem;
+}
+
+#text-calendar h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 2%;
+}
+
+.city-logo {
+  width: clamp(100px, 25%, 300px);
+  height: auto;
+}
+
+.text-cheonan {
+  display: block;
+  color: gray;
+}
+
+.text-cheonan h1 {
+  font-size: clamp(2rem, 7vw, 4rem);
+  margin: 0;
+}
+
+#text-subcheonan {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  display: block;
+}
+
+
+
+
+.body-line {
+  position: absolute;
+  top: 100%;
+  /* header-title 바로 아래 */
+  left: 2rem;
+  /* 왼쪽 여백 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+}
+
+#hr-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: auto;
+  /* 내용물에 맞게 조정 */
+}
+
+#hr-line hr {
+  width: 100px;
+  /* hr 선의 길이 고정 */
+  height: 2px;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  border: none;
+}
+
+#hr-line span {
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  color: gray;
+  white-space: nowrap;
+}
+
+
+/* 메뉴 스타일링 */
+.menu-bar {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 200px;
+  overflow: hidden;
+  position: absolute;
+  border-radius: 10px;
+  top: 20px;
+  right: 20px;
+}
+
+.menu-bar>li {
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  background-color: rgba(135, 206, 235, 0.9);
+
+}
+
+.menu-bar a {
+  color: #fff;
+  display: block;
+}
+
+.sub-menu>li {
+  line-height: 50px;
+  background-color: rgba(135, 206, 235, 0.2);
+}
+
+.sub-menu a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.sub-menu {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.6s;
+}
+
+.menu-bar>li:hover {
+  background-color: rgba(148, 169, 255, 0.1);
+}
+
+.menu-bar>li:hover .sub-menu {
+  height: 300px;
+}
+
+.sub-menu>li>a:hover {
+  color: red;
+}
+
+/* 메인 콘텐츠 */
+main {
+  /* display: flex; */
+  /* justify-content: flex-end; */
+  padding-bottom: 60px;
+  width: 100%;
+  padding: 2rem;
+  margin-top: -5rem;
+  overflow: hidden;
+}
+
+.map-section {
+  float: right;
+  width: 40%;
+  max-width: 500px;
+}
+
+.map-image {
+  float: right;
+  width: 100%;
+  height: auto;
+  animation: fadein 20s ease 10s;
+  -webkit-animation: fadein 10s;
+}
+
+.calendar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 가로 중앙 정렬 */
+  justify-content: center;
+  /* 세로 중앙 정렬 */
+  width: 100%;
+  padding: 60px 0 0 0;
+  /* 좌우 여백 추가 */
+}
+
+#calendar {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 500px;
+  /* 캘린더 최대 너비 설정 */
+  margin: 0 auto;
+  /* 좌우 중앙 정렬 */
+}
+
+.body-line {
+  margin-bottom: 20px;
+  /* hr과 캘린더 사이 간격 조정 */
+}
+
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* 푸터 */
+footer {
+  position: fixed;
+  bottom: 0;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: var(--text-color);
+}
+
+/* 통합 미디어 쿼리 */
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+
+  .logo {
+    gap: 1.5%;
+  }
+
+  #map-section {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-title {
+    padding: 1rem 0;
+  }
+
+  .logo {
+    flex-wrap: nowrap;
+    gap: 1%;
+  }
+
+  .menu-bar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+
+  .map-section {
+    width: 60%;
+  }
+
+  main {
+    margin-top: -3rem;
+  }
+
+  .body-line {
+    left: 1rem;
+  }
+
+  #hr-line hr {
+    width: 80px;
+    /* 모바일에서 더 짧게 */
+  }
+
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .city-logo {
+    width: 30%;
+  }
+
+  .menu-bar {
+    width: 100%;
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .map-section {
+    float: none;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  main {
+    justify-content: center;
+    margin-top: -2rem;
+    padding: 1rem;
+  }
+
+  .sub-menu {
+    position: relative;
+  }
+}

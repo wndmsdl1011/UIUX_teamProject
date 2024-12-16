@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
-  const buttons = document.querySelectorAll("#filter-buttons button");
+  const mapSection = document.getElementById("map-section");
+  const calendarSection = document.getElementById("calendar-section");
+
   const rssBaseUrl = "https://api.rss2json.com/v1/api.json?rss_url=";
   const rssFeeds = {
     allArticle: "http://www.canews.kr/rss/allArticle.xml",
@@ -9,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     S1N2: "http://www.canews.kr/rss/S1N2.xml",
     S1N3: "http://www.canews.kr/rss/S1N3.xml",
     S1N4: "http://www.canews.kr/rss/S1N4.xml",
-    S1N5: "http://www.canews.kr/rss/S1N5.xml",
   };
 
   let calendar = new FullCalendar.Calendar(calendarEl, {
@@ -32,7 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   calendar.render();
 
-  // RSS 데이터 가져오기 및 캘린더 업데이트
+  // 초기 상태 설정: 지도 표시, 캘린더 숨김
+  mapSection.style.display = "block";
+  calendarSection.style.display = "none";
+
   function fetchAndUpdateCalendar(section) {
     const rssUrl = rssFeeds[section];
     fetch(rssBaseUrl + encodeURIComponent(rssUrl))
@@ -42,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
           title: item.title,
           start: new Date(item.pubDate).toISOString(),
           url: item.link,
+          allDay: true
         }));
 
         calendar.removeAllEvents();
@@ -52,17 +57,24 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // 초기 섹션 로드 (전체기사)
-  fetchAndUpdateCalendar("allArticle");
+  window.showCalendarSection = function (section) {
+    mapSection.style.display = "none";    //지도 숨김
+    calendarSection.style.display = "block"; //캘린더 표시
 
-  // 버튼 클릭 이벤트
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      this.classList.add("active");
+    setTimeout(() => {
+      calendar.updateSize();    //캘린더 크기 업데이트
+      fetchAndUpdateCalendar(section); //캘린더 데이터 업데이트
+    }, 100);
+  };
 
-      const section = this.getAttribute("data-section");
-      fetchAndUpdateCalendar(section);
-    });
-  });
+  window.showMapSection = function () {
+    calendarSection.style.display = "none"; //캘린더 숨김
+    mapSection.style.display = "block"; //지도 표시
+  };
+
+  // 초기 상태에서는 지도만 표시
+  showMapSection();
 });
+
+//jquery 사용
+
