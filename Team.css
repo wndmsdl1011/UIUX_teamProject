@@ -18,6 +18,10 @@ body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex; /* Flexbox 레이아웃 */
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  min-height: 100vh; /* 화면 전체 높이 확보 */
+  margin: 0; /* 기본 여백 제거 */
 }
 
 /* 컨테이너 레이아웃 */
@@ -47,6 +51,11 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.small-logo #text-calendar h2 {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  transition: all 0.3s ease-in-out; /* 부드러운 크기 변화 */
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -58,6 +67,11 @@ body {
   width: clamp(100px, 25%, 300px);
   height: auto;
 }
+/* 로고 크기를 줄이는 스타일 */
+.small-logo .city-logo {
+  width: clamp(50px, 15%, 150px); /* 로고 크기 축소 */
+  transition: all 0.3s ease-in-out; /* 부드러운 크기 변화 */
+}
 
 .text-cheonan {
   display: block;
@@ -68,14 +82,20 @@ body {
   font-size: clamp(2rem, 7vw, 4rem);
   margin: 0;
 }
+/* 축소된 스타일 */
+.small-logo .text-cheonan h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem); /* 폰트 크기 축소 */
+  transition: all 0.3s ease-in-out; /* 부드러운 크기 변화 */
+}
 
 #text-subcheonan {
   font-size: clamp(1rem, 3vw, 1.5rem);
   display: block;
 }
-
-
-
+.small-logo #text-subcheonan {
+  font-size: clamp(0.8rem, 2vw, 1rem); /* 폰트 크기 축소 */
+  transition: all 0.3s ease-in-out; /* 부드러운 크기 변화 */
+}
 
 .body-line {
   position: absolute;
@@ -111,7 +131,6 @@ body {
   white-space: nowrap;
 }
 
-
 /* 메뉴 스타일링 */
 .menu-bar {
   position: fixed;
@@ -126,12 +145,11 @@ body {
   right: 20px;
 }
 
-.menu-bar>li {
+.menu-bar > li {
   width: 100%;
   text-align: center;
   line-height: 40px;
   background-color: rgba(135, 206, 235, 0.9);
-
 }
 
 .menu-bar a {
@@ -139,7 +157,7 @@ body {
   display: block;
 }
 
-.sub-menu>li {
+.sub-menu > li {
   line-height: 50px;
   background-color: rgba(135, 206, 235, 0.2);
 }
@@ -155,15 +173,15 @@ body {
   transition: height 0.6s;
 }
 
-.menu-bar>li:hover {
+.menu-bar > li:hover {
   background-color: rgba(148, 169, 255, 0.1);
 }
 
-.menu-bar>li:hover .sub-menu {
+.menu-bar > li:hover .sub-menu {
   height: 300px;
 }
 
-.sub-menu>li>a:hover {
+.sub-menu > li > a:hover {
   color: red;
 }
 
@@ -176,6 +194,7 @@ main {
   padding: 2rem;
   margin-top: -5rem;
   overflow: hidden;
+  flex: 1;
 }
 
 .map-section {
@@ -218,7 +237,6 @@ main {
   /* hr과 캘린더 사이 간격 조정 */
 }
 
-
 @keyframes fadein {
   from {
     opacity: 0;
@@ -230,7 +248,6 @@ main {
 }
 
 @-webkit-keyframes fadein {
-
   /* Safari and Chrome */
   from {
     opacity: 0;
@@ -243,10 +260,12 @@ main {
 
 /* 푸터 */
 footer {
-  position: fixed;
-  bottom: 0;
-  font-size: clamp(0.8rem, 1vw, 1rem);
-  color: var(--text-color);
+  position: static; /* 기본 레이아웃 흐름 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+  padding: 1rem 0; /* 위아래 여백 */
+  font-size: clamp(0.8rem, 1vw, 1rem); /* 텍스트 크기 반응형 설정 */
+  margin-top: 2rem; /* 본문과의 간격 */
+  margin-bottom: -2rem;
 }
 
 /* 통합 미디어 쿼리 */
@@ -280,7 +299,6 @@ footer {
     right: 1rem;
   }
 
-
   .map-section {
     width: 60%;
   }
@@ -297,9 +315,6 @@ footer {
     width: 80px;
     /* 모바일에서 더 짧게 */
   }
-
-
-
 }
 
 @media screen and (max-width: 480px) {
