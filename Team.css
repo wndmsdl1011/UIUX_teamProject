@@ -41,14 +41,13 @@ body {
 #text-calendar {
   position: absolute;
   left: 2%;
-  top: 0rem;
+  top: -1.5rem;
 }
 
 #text-calendar h2 {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease-in-out;
 }
 
 .small-logo #text-calendar h2 {
@@ -267,6 +266,8 @@ main {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
+  opacity: 0; /* 초기 상태 숨기기 */
+  transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
 }
 
 
