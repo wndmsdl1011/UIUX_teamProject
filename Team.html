@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="Team.css">
   <link rel="stylesheet" href=Calendar.css>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
   <script src="Calendar.js"></script>
   <script src="js/allArticle.js"></script>
   <script src="js/clickTop.js"></script>
@@ -16,73 +17,84 @@
   <script src="js/S1N2.js"></script>
   <script src="js/S1N3.js"></script>
   <script src="js/S1N4.js "></script>
-  
+  <script src="Team.js"></script>
+  <link href="lightbox/css/lightbox.css" rel="stylesheet">
+  <script src="lightbox/js/lightbox.js"></script>
+
 </head>
 
 <body>
-    <header class="header-title">
-      <div id="text-calendar">
-        <h2>
-          News Calendar
-        </h2>
-      </div>
-      <div class="logo">
-        <img src="image/cheonan01.png" alt="천안시 로고" class="city-logo">
-        <div class="text-cheonan">
-          <h1>천안시</h1>
-            <div id="text-subcheonan">
-              <span class="city-title">CHEONAN CITY</span>
-            </div>
-        </div>
-        <div class="body-line">
-          <div id="hr-line">
-            <hr><span>CHEONAN CITY</span>
-          </div>
+  <header class="header-title">
+    <div id="text-calendar">
+      <h2>
+        News Calendar
+      </h2>
+    </div>
+    <div class="logo">
+      <img src="image/cheonan01.png" alt="천안시 로고" class="city-logo">
+      <div class="text-cheonan">
+        <h1>천안시</h1>
+        <div id="text-subcheonan">
+          <span class="city-title">CHEONAN CITY</span>
         </div>
       </div>
-    </header>
+      <div class="body-line">
+        <div id="hr-line">
+          <hr><span>CHEONAN CITY</span>
+        </div>
+      </div>
+    </div>
 
-    <nav class="menu-type">
-      <ul class="menu-bar">
-        <li>
-          <a href="#">Start</a>
-          <ul class="sub-menu">
-            <li><a href="#" onclick="showMapSection(); return false;">홈</a></li>
-            <li><a href="#" onclick="showCalendarSection('allArticle'); return false;">전체뉴스</a></li>
-            <li><a href="#" onclick="showCalendarSection('clickTop'); return false;">인기 뉴스</a></li>
-            <li><a href="#" onclick="showCalendarSection('S1N1'); return false;">지역 소식</a></li>
-            <li><a href="#" onclick="showCalendarSection('S1N2'); return false;">기획 뉴스</a></li>
-            <li><a href="#" onclick="showCalendarSection('S1N3'); return false;">이웃사람들</a></li>
-            <li><a href="#" onclick="showCalendarSection('S1N4'); return false;">오피니언</a></li>
-          </ul>
-        </li>
-      </ul>
+  </header>
+
+  <nav class="menu-type">
+    <ul class="menu-bar">
+      <li>
+        <a href="#">Start</a>
+        <ul class="sub-menu">
+          <li><a href="#" onclick="showMapSection(); return false;">홈</a></li>
+          <li><a href="#" onclick="showCalendarSection('allArticle'); return false;">전체뉴스</a></li>
+          <li><a href="#" onclick="showCalendarSection('clickTop'); return false;">인기 뉴스</a></li>
+          <li><a href="#" onclick="showCalendarSection('S1N1'); return false;">지역 소식</a></li>
+          <li><a href="#" onclick="showCalendarSection('S1N2'); return false;">기획 뉴스</a></li>
+          <li><a href="#" onclick="showCalendarSection('S1N3'); return false;">이웃사람들</a></li>
+          <li><a href="#" onclick="showCalendarSection('S1N4'); return false;">오피니언</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="map-section" class="map-section">
+      <!-- 첫 번째 이미지 -->
+      <a href="image/image_2.png" data-lightbox="roadtrip" data-title="천안시 지도"><img src="image/image_2.png" class="map-image"></a>
+      <!-- 두 번째 이미지 -->
+      <a href="image/images001.png" data-lightbox="roadtrip" data-title="천안시 상세 이미지"><img src="image/images001.png" style="display: none;"></a>
+      <!-- 세 번째 이미지 -->
+      <a href="image/images002.png" data-lightbox="roadtrip" data-title="백석대 이미지"><img src="image/images002.png"  style="display: none;"></a>
+      <div class="click-map">지도를 클릭하세요!</div>
+    </section>
+
+    <section id="calendar-section" class="calendar-section" style="display: none;">
+      <h1 style="text-align: center; color: skyblue;"></h1>
+      <div id="calendar"></div>
+    </section>
+  </main>
+
+  <aside>
+    <nav class="side-menu">
+      <ul></ul>
     </nav>
+  </aside>
 
-    <main>
-      <section id="map-section" class="map-section">
-        <img src="image/image_2.png" alt="천안시 지도" class="map-image">
-      </section>
-      
-      <section id="calendar-section" class="calendar-section" style="display: none;">
-        <h1 style="text-align: center; color: skyblue;"></h1>
-        <div id="calendar"></div>
-      </section>
-    </main>
+  <footer id="main-footer">
 
-    <aside>
-      <nav class="side-menu">
-        <ul></ul>
-      </nav>
-    </aside>
+    is Create by &copy;조범상 김주은 <br>
+    UI/UX programing(HTML), 510호 , 본부동, 백석대학교<br>
+    <a href="mailto:johanna12@bu.ac.kr">johanna12@bu.ac.kr</a>
 
-    <footer id="main-footer">
+  </footer><!--main-footer end-->
 
-      is Create by &copy;조범상 김주은 <br>
-      UI/UX programing(HTML), 510호 , 본부동, 백석대학교<br>
-      <a href="mailto:johanna12@bu.ac.kr">johanna12@bu.ac.kr</a>
-
-    </footer><!--main-footer end-->
 
 </body>
 
