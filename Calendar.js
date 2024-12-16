@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
           title: item.title,
           start: new Date(item.pubDate).toISOString(),
           url: item.link,
-          allDay: true
+          allDay: true,
         }));
 
         calendar.removeAllEvents();
@@ -59,12 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.showCalendarSection = function (section) {
-    mapSection.style.display = "none";    //지도 숨김
+    mapSection.style.display = "none"; //지도 숨김
     calendarSection.style.display = "block"; //캘린더 표시
     logo.classList.add("small-logo"); // 로고 크기 줄이기 클래스 추가
 
     setTimeout(() => {
-      calendar.updateSize();    //캘린더 크기 업데이트
+      calendar.updateSize(); //캘린더 크기 업데이트
       fetchAndUpdateCalendar(section); //캘린더 데이터 업데이트
     }, 100);
   };
@@ -78,6 +78,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // 초기 상태에서는 지도만 표시
   showMapSection();
 });
-
-//jquery 사용
-

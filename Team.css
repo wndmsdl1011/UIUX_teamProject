@@ -320,7 +320,7 @@ footer {
 @media screen and (max-width: 480px) {
   .container {
     width: 100%;
-    padding: 0 1rem;
+    padding: 1rem;
   }
 
   .logo {
@@ -333,8 +333,8 @@ footer {
   }
 
   .menu-bar {
-    width: 100%;
-    position: static;
+    width: 30%;
+    position: relative;
     margin-top: 1rem;
   }
 
