@@ -48,6 +48,7 @@ body {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
 }
 
 .small-logo #text-calendar h2 {
@@ -327,6 +328,13 @@ footer {
     width: 80px;
     /* 모바일에서 더 짧게 */
   }
+  #text-calendar h2 {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+  }
+  
+  .small-logo #text-calendar h2 {
+    font-size: clamp(0.8rem, 2vw, 1.5rem);
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -364,5 +372,12 @@ footer {
 
   .sub-menu {
     position: relative;
+  }
+  #text-calendar h2 {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+  
+  .small-logo #text-calendar h2 {
+    font-size: clamp(0.7rem, 1.5vw, 1.2rem);
   }
 }
