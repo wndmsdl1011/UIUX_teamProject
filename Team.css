@@ -16,6 +16,7 @@ body {
   background: linear-gradient(to bottom right, var(--primary-color), #ffffff);
   color: var(--text-color);
   width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
   display: flex; /* Flexbox 레이아웃 */
   flex-direction: column; /* 세로 방향으로 정렬 */
@@ -191,6 +192,7 @@ main {
   padding: 2rem;
   margin-top: -5rem;
   overflow: hidden;
+  flex: 1;
 }
 
 .map-section {
@@ -269,13 +271,14 @@ main {
 
 /* 푸터 */
 footer {
+  margin-top: auto;
   position: static; /* 기본 레이아웃 흐름 */
   text-align: center; /* 텍스트 가운데 정렬 */
-  padding: 1rem 0; /* 위아래 여백 */
+  padding: 20px; /* 위아래 여백 */
   font-size: clamp(0.8rem, 1vw, 1rem); /* 텍스트 크기 반응형 설정 */
   margin-top: 2rem; /* 본문과의 간격 */
- 
 }
+
 
 /* 통합 미디어 쿼리 */
 @media screen and (max-width: 1024px) {
