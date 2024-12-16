@@ -16,11 +16,9 @@ body {
   background: linear-gradient(to bottom right, var(--primary-color), #ffffff);
   color: var(--text-color);
   width: 100%;
-  min-height: 100vh;
   overflow-x: hidden;
   display: flex; /* Flexbox 레이아웃 */
   flex-direction: column; /* 세로 방향으로 정렬 */
-  min-height: 100vh; /* 화면 전체 높이 확보 */
   margin: 0; /* 기본 여백 제거 */
 }
 
@@ -42,7 +40,7 @@ body {
 #text-calendar {
   position: absolute;
   left: 2%;
-  top: -2rem;
+  top: 0rem;
 }
 
 #text-calendar h2 {
@@ -65,6 +63,7 @@ body {
 
 .city-logo {
   width: clamp(100px, 25%, 300px);
+  margin-top: 3px;
   height: auto;
 }
 /* 로고 크기를 줄이는 스타일 */
@@ -187,14 +186,11 @@ body {
 
 /* 메인 콘텐츠 */
 main {
-  /* display: flex; */
-  /* justify-content: flex-end; */
   padding-bottom: 60px;
   width: 100%;
   padding: 2rem;
   margin-top: -5rem;
   overflow: hidden;
-  flex: 1;
 }
 
 .map-section {
@@ -258,6 +254,19 @@ main {
   }
 }
 
+.click-map{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
 /* 푸터 */
 footer {
   position: static; /* 기본 레이아웃 흐름 */
@@ -265,7 +274,7 @@ footer {
   padding: 1rem 0; /* 위아래 여백 */
   font-size: clamp(0.8rem, 1vw, 1rem); /* 텍스트 크기 반응형 설정 */
   margin-top: 2rem; /* 본문과의 간격 */
-  margin-bottom: -2rem;
+ 
 }
 
 /* 통합 미디어 쿼리 */
